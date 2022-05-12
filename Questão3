@@ -1,0 +1,8 @@
+p = i; 
+q = &j;
+p = &*&i; 
+i = (*&)j;-operação ilegal  
+i = *&j; 
+i = *&*&j; 
+q = *p; 
+i = (*p)++ + *q;
