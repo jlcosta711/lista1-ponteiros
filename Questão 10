@@ -19,4 +19,3 @@ int main() {
     printf("endereço double:\n%d\n%d\n%d\n", w0+1, w0+2, w0+3);
     return 0;
 }
-
