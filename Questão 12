@@ -1,0 +1,21 @@
+/*Ponteiros, são variáveis que armazenam o endereço de memória de outras variáveis.
+Dizemos que um ponteiro “aponta” para uma variável quando contém o endereço da mesma.
+Os ponteiros podem apontar para qualquer tipo de variável. Portanto temos ponteiros para int, float, double, etc.
+Exemplo:*/
+#include <stdio.h>
+
+int main(void)
+{
+  
+  int x;// variável para demonstrar o uso de ponteiros( variável que será apontada pelo ponteiro *p)   
+  x= 27;//conteúdo da variavel x
+  
+  int *p;//declaração da variável ponteiro
+  p = &x;//atribuindo o endereço da variável x ao ponteiro
+  
+  printf("Exemplo de ponteiros\n\n");
+  printf ("Conteudo da variavel x: %d\n", x);
+  printf ("Endereço da variavel x: %x \n", &x);
+  printf ("Conteudo da variavel ponteiro p: %x", p);
+   return(0);
+}
