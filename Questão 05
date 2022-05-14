@@ -1,0 +1,16 @@
+//Com isso, conseguimos os seguintes resultados:
+i = 0;
+vet[0] = 1.1;
+(f + 1) = 1.1;
+&vet[0] = 7A73E590;
+(f + 1) = 7A73E590;
+i = 1;
+vet[0] = 2.2;
+(f + 1) = 2.2;
+&vet[0] = 7A73E594;
+(f + 1) = 7A73E594;
+i = 2;
+vet[0] = 3.3;
+(f + 1) = 3.3;
+&vet[0] = 7A73E598;
+(f + 1) = 7A73E598;
