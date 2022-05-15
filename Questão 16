@@ -1,0 +1,102 @@
+//15.1
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+float comparador(const void *p, const void *x) {
+
+   return ( *(int*)p - *(int*)x );//função de comparação 
+}
+   float compare(const void *p, const void *x){
+  if ( *(float*)p <  *(float*)x ) return -1;
+  if ( *(float*)p == *(float*)x ) return 0;
+  if ( *(float*)p >  *(float*)x ) return 1;
+
+ }//criterios de comparação 
+
+int main () {
+   clock_t Ticks[2];//função para medir o tempo
+   double tempo;//variavel tempo
+   int n; //quantidade de valores
+   float *v;//ponteiro para receber n
+
+  Ticks[0]=clock();
+ 
+  printf("digite a quantidade de valores:\n");
+ scanf("%d", &n);//recebe a quantidade de valores  
+
+  v = malloc(n*sizeof(float));
+  
+  for (int i = 0; i<n; i++){
+   printf("digite o %dº valor:\n", i+1);
+   scanf("%f",&v[i]);//recebe os valores 
+}
+
+   qsort(v, n, sizeof(float), comparador);//ordena o vetor
+
+  printf("Valores digitados em ordem crescente: \n");
+for (int d = 0; d<n; d++){
+   printf("%f \n", v[d]);
+}   //mostra os valores do array em ordem crescente
+  free(v);
+
+  Ticks[1]= clock();
+
+ tempo= (Ticks[1] - Ticks[0])*1000.0 / CLOCKS_PER_SEC;
+
+  printf("tempo de execução:%g ms. \n", tempo);
+  getchar();
+
+   return(0);
+}
+
+//14.1
+// a função qsort permite ordenar qualquer tipo de vetor (int, float, string, struct, etc).
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int compare(const void *a, const void *b){
+  if ( *(float*)a <  *(float*)b ) return -1;//se a for menor que b, retorna -1
+  if ( *(float*)a == *(float*)b ) return 0;// se a for equivalente a b, retorna 0
+  if ( *(float*)a >  *(float*)b ) return 1;//se a for maior que b, retorna 1
+}//criterios de comparação 
+
+int main(void) {
+ clock_t temp[2];//função para marcar o tempo
+ double tempo;//variavel para o tempo 
+ int n; // quantidade de valores
+ float *p;//ponteiro para apontar o endereço de n
+  
+ temp[0]= clock();//iniciando a contagem
+  
+ printf("digite a quantidade de valores:\n");//pede a quantidade de valores
+ scanf("%d", &n);//armezena a quantidade de valores
+
+ p = malloc(n*sizeof(float));//aloca memoria para um vetor do tipo float, de acordo com a quantidade de elementos 
+
+for (int i = 0; i<n; i++){
+   printf("digite o %dº valor:\n", i+1);
+   scanf("%f",&p[i]);
+}
+
+qsort(p,n,sizeof(float),compare);//ordena o vetor do tipo float
+
+printf("Valores digitados em ordem crescente: \n");
+for (int d = 0; d<n; d++){
+   printf("%f \n", p[d]);//mostra os valores em ordem crescente
+}
+
+free(p);//libera a função malloc usada para alocar o vetor p 
+
+  temp[1]=clock();
+
+  tempo=(temp[1]- temp[0])*1000.0/CLOCKS_PER_SEC;
+
+  printf("Tempo de execução do programa: %g ms\n", tempo);
+  getchar();
+return 0;
+}
+
+//Utilizando a função qsort o tempo de execução foi menor.
+
