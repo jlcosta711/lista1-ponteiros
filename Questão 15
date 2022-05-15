@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+float comparador(const void *p, const void *x) {
+   return ( *(int*)p - *(int*)x );//função de comparação 
+}
+   float compare(const void *p, const void *x){
+  if ( *(float*)p <  *(float*)x ) return -1;
+  if ( *(float*)p == *(float*)x ) return 0;
+  if ( *(float*)p >  *(float*)x ) return 1;
+
+ }//criterios de comparação 
+
+int main () {
+   int n; //quantidade de valores
+   float *v;//ponteiro para receber n
+
+  printf("digite a quantidade de valores:\n");
+ scanf("%d", &n);//recebe a quantidade de valores  
+  
+  v= malloc(n*sizeof(float));//construção do vetor 
+
+  for (int i = 0; i<n; i++){
+   printf("digite o %dº valor:\n", i+1);
+   scanf("%f",&v[i]);//recebe os valores 
+}
+
+   qsort(v, n, sizeof(float), comparador);//ordena o vetor
+
+  printf("Valores digitados em ordem crescente: \n");
+for (int d = 0; d<n; d++){
+   printf("%f \n", v[d]);
+}   //mostra os valores do array em ordem crescente
+  
+   free(v);//libera o vetor v alocado
+   return(0);
+}
