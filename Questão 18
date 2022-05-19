@@ -28,7 +28,7 @@ if(colunaA == linhaB) {
 			printf("\n\n Informe o valor da %d%c Linha e da %d%c Coluna da 2%c Matriz B: ", i+1, 167, j+1, 167, 167);
 			scanf("%f", &matrizB[i][j]);
 		}
-		printf("\n");
+		printf("\n"); 
 	}
 
 	// Imprime as matrizes definidas
